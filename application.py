@@ -31,13 +31,3 @@ def send_wisdom():
 
 if __name__ == "__main__":
     application.run()
-
-
-# if __name__ == "__main__":
-#     from waitress import serve
-
-#     serve(application, host="http://217.160.156.18/", port=5000)
-
-
-# if __name__ == "__main__":
-#     application.run(host="127.0.0.1", port=80, debug=True)
