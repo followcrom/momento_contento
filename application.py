@@ -27,3 +27,7 @@ def send_wisdom():
     data = request.form
     add_to_db(data)
     return render_template("submitted.html", submission=data)
+
+
+if __name__ == "__main__":
+    application.run()
