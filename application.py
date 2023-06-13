@@ -27,7 +27,3 @@ def send_wisdom():
     data = request.form
     add_to_db(data)
     return render_template("submitted.html", submission=data)
-
-
-if __name__ == "__main__":
-    application.run(host="127.0.0.1", port=5000, debug=False)
