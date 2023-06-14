@@ -47,10 +47,7 @@ def add_to_db(data):
         print("Honeypot check failed")
         return False
 
-    else:
-        with engine.connect() as conn:
-            query = text(
-                "INSERT INTO domdoms3 (title, wisdom) VALUES (:title, :wisdom)"
-            )
-            conn.execute(query, title=data["title"], wisdom=data["wisdom"])
-        return True
+    with engine.connect() as conn:
+        query = text("INSERT INTO domdoms3 (title, wisdom) VALUES (:title, :wisdom)")
+        conn.execute(query, title=data["title"], wisdom=data["wisdom"])
+    return True
