@@ -48,7 +48,7 @@ def add_to_db(data):
             query = text(
                 "INSERT INTO domdoms3 (title, wisdom) VALUES (:title, :wisdom)"
             )
-            conn.execute(query, title=data["title"], wisdom=data["wisdom"])
+            conn.execute(query, {"title": data["title"], "wisdom": data["wisdom"]})
         return True
     else:
         return False
