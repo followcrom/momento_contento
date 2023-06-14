@@ -14,9 +14,17 @@ engine = create_engine(db_connection_string)
 def load_domdoms_from_db():
     with engine.connect() as conn:
         result = conn.execute(text("select * from domdoms3"))
+        rows = result.fetchall()  # fetch all rows
         domdoms_lst = []
-        for row in result.all():
-            domdoms_lst.append(dict(row))
+
+        # Fetch the column names
+        keys = result.keys()
+
+        for row in rows:
+            # Convert tuple to dictionary
+            row_dict = dict(zip(keys, row))
+            domdoms_lst.append(row_dict)
+
         return domdoms_lst
 
 
