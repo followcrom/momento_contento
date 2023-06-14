@@ -8,7 +8,7 @@ import pymysql
 db_connection_string = os.environ["DB_CONNECTION_STRING"]
 
 
-engine = create_engine(db_connection_string)
+engine = create_engine(db_connection_string, echo=True)
 
 
 def load_domdoms_from_db():
@@ -43,12 +43,6 @@ def load_domdom_from_db(dom_id):
 
 
 def add_to_db(data):
-    if not data.get("honeypot"):
-        with engine.connect() as conn:
-            query = text(
-                "INSERT INTO domdoms3 (title, wisdom) VALUES (:title, :wisdom)"
-            )
-            conn.execute(query, {"title": data["title"], "wisdom": data["wisdom"]})
-        return True
-    else:
-        return False
+    with engine.connect() as conn:
+        query = text("INSERT INTO domdoms3 (title, wisdom) VALUES (:title, :wisdom)")
+        conn.execute(query, title=data["title"], wisdom=data["wisdom"])
