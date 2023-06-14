@@ -16,7 +16,6 @@ def load_domdoms_from_db():
         result = conn.execute(text("select * from domdoms3"))
         rows = result.fetchall()  # fetch all rows
         domdoms_lst = []
-
         # Fetch the column names
         keys = result.keys()
 
@@ -29,13 +28,18 @@ def load_domdoms_from_db():
 
 
 def load_domdom_from_db(dom_id):
-    numdoms = len(load_domdoms_from_db())
     with engine.connect() as conn:
         result = conn.execute(
-            text("select * from domdoms3 where id = :val"), val=dom_id
+            text("select * from domdoms3 where id = :val"), {"val": dom_id}
         )
-        rows = result.all()
-        return dict(rows[0])
+        rows = result.fetchall()  # Fetch all rows, should return one row
+
+        if rows:
+            keys = result.keys()  # Fetch the column names
+            row_dict = dict(zip(keys, rows[0]))  # Convert tuple to dictionary
+            return row_dict
+        else:
+            return None
 
 
 def add_to_db(data):
@@ -44,7 +48,7 @@ def add_to_db(data):
             query = text(
                 "INSERT INTO domdoms3 (title, wisdom) VALUES (:title, :wisdom)"
             )
-            conn.execute(query, title=data["title"], wisdom=data["wisdom"])
+            conn.execute(query, {"title": data["title"], "wisdom": data["wisdom"]})
         return True
     else:
         return False
