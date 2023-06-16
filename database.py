@@ -43,7 +43,12 @@ def load_domdom_from_db(dom_id):
 
 
 def add_to_db(data):
-    with engine.connect() as conn:
-        query = text("INSERT INTO domdoms3 (title, wisdom) VALUES (:title, :wisdom)")
-        conn.execute(query, {"title": data["title"], "wisdom": data["wisdom"]})
-    return True
+    if not data.get("honeypot"):
+        with engine.connect() as conn:
+            query = text(
+                "INSERT INTO domdoms3 (title, wisdom) VALUES (:title, :wisdom)"
+            )
+            conn.execute(query, {"title": data["title"], "wisdom": data["wisdom"]})
+        return True
+    else:
+        return False
