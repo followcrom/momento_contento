@@ -10,13 +10,13 @@
 
 ## Front-end
 
-The front-end U.I is built with HTML / CSS and uses Jinja2 templates to display the content.
+Our front-end is constructed with HTML and CSS, leveraging Jinja2 templates to display the data.
 
 ### index.html / header.html / footer.html
 
-- Returns the initially called information
-- Allows one-click reloading
-- Contains a form for users’ content
+- These files handle the display of the initial content.
+- They enable one-click refreshing of the random wisdom.
+- They contain a form for users to contribute their own wisdom.
 
 ### form.html
 
@@ -34,7 +34,7 @@ The front-end U.I is built with HTML / CSS and uses Jinja2 templates to display 
 
 ### application.py
 
-- Launches the application
+- Launches the RanDOM WisDOM application
 
 ### database.py
 
