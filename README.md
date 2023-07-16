@@ -10,7 +10,7 @@
 
 ## Front-end
 
-Our front-end is constructed with HTML and CSS, leveraging Jinja2 templates to display the data.
+U.I is built with HTML and CSS and leverages Jinja2 templates to display the data.
 
 ### index.html / header.html / footer.html
 
@@ -20,11 +20,11 @@ Our front-end is constructed with HTML and CSS, leveraging Jinja2 templates to d
 
 ### form.html
 
-- An include in index.html with the form attributes
+- An include in index.html with the form attributes.
 
 ### submitted.html
 
-- Posts the form and returns the users’ contribution
+- Posts the form and returns the users’ contribution.
 
 ### large.css
 
@@ -34,14 +34,24 @@ Our front-end is constructed with HTML and CSS, leveraging Jinja2 templates to d
 
 ### application.py
 
-- Launches the RanDOM WisDOM application
+- Launches the RanDOM WisDOM application.
 
 ### database.py
 
-- Interacts with the database using MySQL queries via SQLAlchemy
+- Interacts with the database using MySQL queries via SQLAlchemy.
 
 The application is built with the robust Flask framework and requires just four dependencies, which can be found in the `requirements.txt` file.
 
-## Badges
+## Authors
 
-![MIT license](https://badgen.net/badge/license/MIT/blue)
+🌐 followCrom: [followcrom.online](https://followcrom.online/index.html) 🌐
+
+📫 followCrom: [get in touch](https://followcrom.online/contact/contact.php) 📫
+
+![GitHub last commit](https://img.shields.io/github/last-commit/followcrom/RanDomWisDom)
+
+## License
+
+This project is open source and available under the MIT License. See the LICENSE file for details.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
