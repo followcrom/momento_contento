@@ -10,13 +10,13 @@
 
 ## Front-end
 
-U.I built with HTML and CSS and leverages Jinja2 templates to display the data.
+UI built with HTML and CSS, leveraging Jinja2 templates to display the data.
 
 ### index.html / header.html / footer.html
 
 - These files handle the display of the initial content.
 - They enable one-click refreshing of the random wisdom.
-- Incluides the form for users to contribute wisdom of their own.
+- Includes the form for users to contribute wisdom of their own.
 
 ### form.html
 
