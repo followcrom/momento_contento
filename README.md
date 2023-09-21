@@ -4,8 +4,6 @@
 
 ## Getting Started
 
-🚀 [RanDOM WisDOM runnng on AWS](http://random-wisdom.eu-west-2.elasticbeanstalk.com/) 🚀
-
 ![RanDOM WisDOM webpage](https://www.followcrom.online/embeds/gh_domdom_readme.jpg "RanDOM WisDOM webpage")
 
 ## Front-end
