@@ -1,10 +1,11 @@
-# RanDOM WisDOM
+# Momento Contento
 
-**RanDOM WisDOM** is a dynamic web application that displays a random quote from a database to the user. In addition, users have the opportunity to contribute their own nuggets of wisdom to enrich our collective database, all accessible through a user-friendly interface.
+**Momento Contento** is a dynamic web application that displays a random quote from a database to the user. In addition, users have the opportunity to contribute their own nuggets of wisdom to enrich our collective database, all accessible through a user-friendly interface.
 
 ## Getting Started
 
-![RanDOM WisDOM webpage](https://www.followcrom.online/embeds/gh_domdom_readme.jpg "RanDOM WisDOM webpage")
+![Momento Contento running on AWS EC2 instance](https://www.followcrom.online/embeds/gh_domdom_readme.jpg "RanDOM WisDOM webpage")
+Momento Contento running on AWS EC2 instance.
 
 ## Front-end
 
