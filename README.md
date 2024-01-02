@@ -6,7 +6,9 @@
 
 ![RanDOM WisDOM webpage](https://www.followcrom.online/embeds/gh_domdom_readme.jpg "RanDOM WisDOM webpage")
 
-\_### \_Front-end
+## Usage
+
+### Front-end
 
 UI built with HTML and CSS, leveraging Jinja2 templates to display the data.
 
