@@ -1,14 +1,14 @@
-# RanDOM WisDOM
+# Momento Contento
 
-**RanDOM WisDOM** is a dynamic web application that displays a random quote from a database to the user. In addition, users have the opportunity to contribute their own nuggets of wisdom to enrich our collective database, all accessible through a user-friendly interface.
+**Momento Contento** is a dynamic web application that displays a random quote from a database to the user. In addition, users have the opportunity to contribute their own nuggets of wisdom to enrich our collective database, all accessible through a user-friendly interface.
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/followcrom/Momento-Contento) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/followcrom/Momento-Contento)
 
-![RanDOM WisDOM webpage](https://www.followcrom.online/embeds/gh_domdom_readme.jpg "RanDOM WisDOM webpage")
+![Momento Contento webpage](https://www.followcrom.online/embeds/gh_domdom_readme.jpg "Momento Contento webpage")
 
 ## Usage
 
-### Front-end
+### Front-end:
 
 UI built with HTML and CSS, leveraging Jinja2 templates to display the data.
 
@@ -30,7 +30,7 @@ UI built with HTML and CSS, leveraging Jinja2 templates to display the data.
 
 - CSS for a viewport => 1024px.
 
-### Back-end
+### Back-end:
 
 **application.py**
 
