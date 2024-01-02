@@ -1,13 +1,10 @@
-# Momento Contento
+# RanDOM WisDOM
 
-**Momento Contento** is a dynamic web application built using the Flask framework. A random quote is pulled from a database and shown to the user. In addition, users can contribute their own nuggets of wisdom to enrich our collective database. It's all accessible through a user-friendly interface.
-
-![Momento Contento running on AWS EC2 instance](https://www.followcrom.online/embeds/gh_domdom_readme.jpg "Momento Contento webpage")
-Momento Contento running on AWS EC2 instance.
+**RanDOM WisDOM** is a dynamic web application that displays a random quote from a database to the user. In addition, users have the opportunity to contribute their own nuggets of wisdom to enrich our collective database, all accessible through a user-friendly interface.
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/followcrom/Momento-Contento) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/followcrom/Momento-Contento)
 
-## Usage:
+![RanDOM WisDOM webpage](https://www.followcrom.online/embeds/gh_domdom_readme.jpg "RanDOM WisDOM webpage")
 
 \_### \_Front-end
 
