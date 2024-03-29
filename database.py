@@ -5,14 +5,15 @@ import os
 import pymysql
 
 
-db_connection_string = os.environ["DB_CONNECTION_STRING"]
+# Use SQLite for simplicity: the database will be a local file named 'test.db'
+db_connection_string = "sqlite:///placeholder.db"
 
 engine = create_engine(db_connection_string, echo=True)
 
 
 def load_domdoms_from_db():
     with engine.connect() as conn:
-        result = conn.execute(text("select * from domdoms3"))
+        result = conn.execute(text("SELECT * FROM momcons"))
         rows = result.fetchall()  # fetch all rows
         domdoms_lst = []
         # Fetch the column names
@@ -29,7 +30,7 @@ def load_domdoms_from_db():
 def load_domdom_from_db(dom_id):
     with engine.connect() as conn:
         result = conn.execute(
-            text("select * from domdoms3 where id = :val"), {"val": dom_id}
+            text("SELECT * FROM momcons where id = :val"), {"val": dom_id}
         )
         rows = result.fetchall()  # Fetch all rows, should return one row
 
@@ -44,9 +45,7 @@ def load_domdom_from_db(dom_id):
 def add_to_db(data):
     if not data.get("honeypot"):
         with engine.connect() as conn:
-            query = text(
-                "INSERT INTO domdoms3 (title, wisdom) VALUES (:title, :wisdom)"
-            )
+            query = text("INSERT INTO momcons (title, wisdom) VALUES (:title, :wisdom)")
             conn.execute(query, {"title": data["title"], "wisdom": data["wisdom"]})
         return True
     else:
