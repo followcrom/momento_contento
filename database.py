@@ -6,8 +6,6 @@ import pymysql
 
 
 db_connection_string = os.environ["DB_CONNECTION_STRING"]
-# "mysql+pymysql://root:password@localhost/domdoms3"
-
 
 engine = create_engine(db_connection_string, echo=True)
 
