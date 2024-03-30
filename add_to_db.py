@@ -6,8 +6,8 @@ print("Session instance created.")
 
 # Create a new MomCon instance
 new_momcon = MomCon(
-    title="Only A Brit Can Drop The Bard",
-    wisdom="Perdition catch my soul, But I do love thee! And when I love thee not, Chaos is come again.",
+    title="Babylon",
+    wisdom="Simon Cowell can't write a song. In the world of Simon Cowell, we'd have no music. Somebody has to do the building.",
 )
 print(
     f"New MomCon instance created: Title - {new_momcon.title}, Wisdom - {new_momcon.wisdom}"

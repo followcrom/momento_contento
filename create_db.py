@@ -25,7 +25,7 @@ Session = sessionmaker(bind=engine)
 print("Session class created.")
 
 if __name__ == "__main__":
-    # This block will only run when db_setup.py is executed directly,
+    # This block will only run when create_db.py is executed directly,
     # not when it's imported by another module
     print("Creating database and tables...")
     Base.metadata.create_all(engine)
