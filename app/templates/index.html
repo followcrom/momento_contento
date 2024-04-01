@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+{% include 'header.html' %}
+
+
+<div class="info">
+  A content box is chosen at random from the database and displayed below:
+</div>
+<div class="arrows">&#8595&#8595&#8595&#8595&#8595</div>
+
+
+<div class="content">
+
+  <div class=content_box>
+    <div class="id_ref">
+      content box id: <b>{{dom_id}}</b> of <b>{{numdoms}}</b>
+    </div>
+
+    <div class=title>
+      {{domdom.title}}
+    </div>
+
+
+    <div class=text>
+      {% set lines_lst = domdom.wisdom.split("\n") %}
+
+      {% for line in lines_lst %}
+      {{ line }}
+      <br>
+
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="arrows">&#8593&#8593&#8593&#8593&#8593</div>
+<div class="info">
+  Currently the box shows a quote (some 'random wisdom') but any kind of content can be used. <a class="page"
+    href="/">Click here</a>
+  to reload it.
+  <br><br>
+  <button onclick="location.reload()">Reload Page</button>
+</div>
+
+
+
+<div class="info">
+  Users can add their own entires to the database:
+  <div class="arrows">&#8595&#8595&#8595&#8595&#8595</div>
+</div>
+
+
+<div class=form>
+  {% include 'form.html' %}
+</div>
+
+
+<div class="arrows">&#8593&#8593&#8593&#8593&#8593</div>
+
+<div class="info">These are then included in the boxes that will be displayed. Try it for yourself!
+  <br><br>
+  Visit the <a class="page" href="https://github.com/followcrom/RanDomWisDom" target="blank">Github repo</a>.
+</div>
+
+
+
+
+
+
+{% include 'footer.html' %}
+
+
+</body>
+
+</html>

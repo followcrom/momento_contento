@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+{% include 'header.html' %}
+
+<div class="content">
+
+  <div class=content_box>
+
+    <div class=title>
+      {{submission.title}}
+    </div>
+
+    <div class=text>
+      {% for line in submission.wisdom.split("\n") %}
+
+      {{line}}
+
+      {% endfor %}
+    </div>
+
+  </div>
+
+  <div class="submitted">
+    <a class="page" href="/">Return to homepage</a>
+  </div>
+
+</div>
+
+{% include 'footer.html' %}
+
+</body>
+
+</html>

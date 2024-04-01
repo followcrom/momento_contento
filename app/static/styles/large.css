@@ -1,0 +1,284 @@
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding : 0px;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  background-color: #FFF;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  padding: 10px;
+}
+
+/* Set the width of the image */
+.banner img {
+  width: 120px;
+  height: auto;
+  margin-right: 20px; /* Add some spacing between the image and text */
+}
+
+
+
+.button {
+  text-align: center;
+  font-family: Verdana, sans-serif;
+  font-weight: normal;
+  font-size: 2.8em;
+  background-color: #000;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  color: #FFF;
+  text-decoration: none;
+}
+
+
+.button:hover {
+  color: red;
+}
+
+@keyframes enticing {
+  0%{background-position:10% 0%}
+  50%{background-position:91% 110%}
+  100%{background-position:10% 0%}
+}
+
+a:link, a:visited, a:hover {
+    color: inherit;
+    text-decoration: inherit;
+    cursor: pointer;
+  }
+
+  .top_bar {
+  	background-color: #7d9a90;
+    padding: 5px;
+  	font-family: Verdana, sans-serif;
+  	text-align : center;
+  	font-size: 1.4em;
+  	color: #FFF;
+    clear: left;
+    border-bottom: #000 solid 5px;
+  }
+
+
+.arrows {
+  font-size: 2em;
+  text-align : center;
+  color: black;
+  padding: 5px;
+}
+
+
+
+.info {
+width: 30%;
+margin: auto;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+font-size: 0.9em;
+text-align : center;
+line-height: 1.4;
+color: black;
+padding: 10px;
+}
+
+
+
+.content {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  flex-grow: 1;
+}
+
+
+.content_box {
+  padding : 15px;
+  background-color: #F0F8FF;
+  border: 8px double #000;
+  border-radius: 10px;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+}
+
+
+.id_ref {
+    font-family: Georgia, Tahoma, sans-serif;
+    font-size: 1.2em;
+    text-align : center;
+    margin-bottom: 2vh;
+  }
+
+
+.title {
+    padding : 0px;
+   	text-align: center;
+   	font-family: Verdana, sans-serif;
+    font-weight: bold;
+   	font-size: 1.8em;
+   	color: #000;
+   }
+
+
+.text {
+    margin-top: 4px;
+    padding: 5px;
+  	text-align: center;
+  	font-family: Georgia, Tahoma, sans-serif;
+    font-size: 1.2em;
+  	color: #000;
+  	line-height: 1.7em;
+    margin-bottom: 15px;
+  }
+
+
+.submitted {
+    padding : 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    text-align : center;
+    margin-top: auto;
+  }
+
+
+a.page:link {
+    color:#000;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+a.page:visited {
+  color:#000;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a.page:hover {
+    color: teal;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+a {
+    all: unset;
+  }
+
+
+.form {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-family: Verdana, sans-serif;
+    font-size: 0.9em;
+    color: #000;
+  }
+
+
+input[type=text], select {
+    width: 60%;
+    padding: 12px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #7d9a90;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+
+textarea {
+  width: 60%;
+  padding: 12px;
+  margin: 5px 0;
+  display: inline-block;
+  border: 1px solid #7d9a90;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+input[type=submit] {
+  width: 30%;
+  padding: 12px;
+  margin: 8px 0;
+  background-color: #000;
+  color: #FFF;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+input[type=submit]:hover {
+    background-color: #7d9a90;
+    color: #000;
+  }
+
+.bottomrow {
+    background-color: #7d9a90;
+    text-align: center;
+    padding-top: 0.6vw;
+    padding-right: 0px;
+    padding-bottom: 0.5vw;
+    padding-left: 0px;
+    margin-top: 1.5vh;
+    bottom: 0px;
+    width : 100%;
+    border-top: 5px solid black;
+}
+
+
+a.footer:link {
+  color:#000;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a.footer:visited {
+  color:#000;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a.footer:hover {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.icon {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 32px;
+    height: 32px;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 25% 25%;
+    justify-content: center;
+    gap: 1em;
+    padding: 10px;
+}
+
+
+.grid-item {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-family: Verdana, sans-serif;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+
+.tools {
+  padding: 10px;
+}
