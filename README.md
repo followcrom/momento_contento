@@ -33,14 +33,12 @@ To make your app accessible via the VM's public IP address, you need to bind it 
 
 ```bash
 flask --app application run --host=0.0.0.0
-
-# `application` is the name of the Flask app, which is defined in the application.py file (`application = Flask(__name__)`)
 ```
 
-See the app running on the public IP address of the VM:
+The app is running on the public IP address of the VM:
 http://51.140.101.98:5000/
 
-Ensure that the port you're using is open in the Azure VM's network security group.
+Ensure that the port you're using is open in the Azure VM's network security group. This is not necessary when using Nginx as a reverse proxy.
 
 ## Gunicorn (Application Server)
 

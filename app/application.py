@@ -28,6 +28,6 @@ def send_wisdom():
     return render_template("submitted.html", submission=data)
 
 
-# Specifically used to run on Flask's built-in development server:
-if __name__ == "__main__":
-    application.run(debug=True, port=5000)
+# # Specifically used to run on Flask's built-in development server:
+# if __name__ == "__main__":
+#     application.run(debug=True, port=5000)
