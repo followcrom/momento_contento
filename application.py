@@ -30,5 +30,5 @@ def send_wisdom():
 
 
 # Specifically used to run your Flask app using Flask's built-in development server. This is convenient for development but not suitable for production. It's still good practice to keep it in your code, though.
-if __name__ == "__main__":
-    application.run(debug=True, port=5000)  # Run the app on http://localhost:5000
+# if __name__ == "__main__":
+#     application.run(debug=True, port=5000)  # Run the app on http://localhost:5000
