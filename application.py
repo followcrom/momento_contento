@@ -29,6 +29,6 @@ def send_wisdom():
     return render_template("submitted.html", submission=data)
 
 
+# Specifically used to run your Flask app using Flask's built-in development server. This is convenient for development but not suitable for production. It's still good practice to keep it in your code, though.
 if __name__ == "__main__":
-    application.run(debug=True)
-    # application.run(host='0.0.0.0', port=8080, debug=True)
+    application.run(debug=True, port=5000)  # Run the app on http://localhost:5000
