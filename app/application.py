@@ -29,5 +29,5 @@ def send_wisdom():
 
 
 # # Specifically used to run on Flask's built-in development server:
-if __name__ == "__main__":
-    application.run(port=5000)
+# if __name__ == "__main__":
+#     application.run(port=5000)

@@ -27,6 +27,14 @@ flask --app application run
 
 # Azure VM
 
+Build a venv if necessary:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
 ## Flask Development Server
 
 To make your app accessible via the VM's public IP address, you need to bind it to 0.0.0.0 instead of 127.0.0.1:
