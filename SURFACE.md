@@ -36,3 +36,6 @@ which gunicorn
 systemctl status momcon
 
 sudo journalctl -u momcon.service
+
+systemctl restart momcon
+root@ubuntu-s-1vcpu-1gb-lon1-01:/var/www/momento_contento# git pull

@@ -11,9 +11,9 @@ application.config['APPLICATION_ROOT'] = '/momcon'
 def url_for_with_subpath(endpoint, **values):
     # Generate the URL using url_for
     url = url_for(endpoint, **values)
-    # Add the application root if it isn't already present
-    # if not url.startswith(application.config['APPLICATION_ROOT']):
-    #     url = application.config['APPLICATION_ROOT'] + url
+    # Add the application root as it isn't already present on the D.O. box
+    if not url.startswith(application.config['APPLICATION_ROOT']):
+        url = application.config['APPLICATION_ROOT'] + url
     return url
 
 # Add the function to Jinja2 environment
@@ -38,15 +38,3 @@ def send_wisdom():
     data = request.form
     add_to_db(data)
     return render_template("submitted.html", submission=data)
-
-if __name__ == "__main__":
-    application.run(debug=True)
-
-
-# if __name__ == "__main__":
-#     application.run(debug=True)
-
-
-# # Specifically used to run on Flask's built-in development server:
-# if __name__ == "__main__":
-#     application.run(port=5000)
