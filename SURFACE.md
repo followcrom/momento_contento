@@ -1,4 +1,4 @@
-# Putting Momcon ontothe DO Box
+# Putting Momcon on the D.O. Box
 
 Check Disk Usage with df:
 The df command shows the amount of disk space used and available on all mounted filesystems.

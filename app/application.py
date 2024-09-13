@@ -12,8 +12,8 @@ def url_for_with_subpath(endpoint, **values):
     # Generate the URL using url_for
     url = url_for(endpoint, **values)
     # Add the application root if it isn't already present
-    if not url.startswith(application.config['APPLICATION_ROOT']):
-        url = application.config['APPLICATION_ROOT'] + url
+    # if not url.startswith(application.config['APPLICATION_ROOT']):
+    #     url = application.config['APPLICATION_ROOT'] + url
     return url
 
 # Add the function to Jinja2 environment
