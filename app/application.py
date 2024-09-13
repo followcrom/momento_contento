@@ -1,8 +1,11 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, url_for
 from database import load_domdoms_from_db, load_domdom_from_db, add_to_db
 import random
 
 application = Flask(__name__)
+
+# Set the application root for subpath support
+application.config['APPLICATION_ROOT'] = '/momcon'
 
 
 @application.route("/")
@@ -21,7 +24,7 @@ def show_json():
     return jsonify(domdoms)
 
 
-@application.route("/sent", methods=["post"])
+@application.route("/sent", methods=["POST"])
 def send_wisdom():
     data = request.form
     add_to_db(data)
