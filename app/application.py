@@ -9,7 +9,8 @@ application.config['APPLICATION_ROOT'] = '/momcon'
 
 # Create a function to generate URLs with the correct subpath
 def url_for_with_subpath(endpoint, **values):
-    return url_for(endpoint, **values, _external=True, _scheme='').replace('//', '/')
+    # Ensure the subpath is correctly added
+    return url_for(endpoint, _external=True, **values).replace('http://', f'http://{request.host}/momcon')
 
 # Add the function to Jinja2 environment
 application.jinja_env.globals['url_for_with_subpath'] = url_for_with_subpath
@@ -33,6 +34,10 @@ def send_wisdom():
     data = request.form
     add_to_db(data)
     return render_template("submitted.html", submission=data)
+
+if __name__ == "__main__":
+    application.run(debug=True)
+
 
 # if __name__ == "__main__":
 #     application.run(debug=True)
