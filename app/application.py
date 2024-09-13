@@ -8,12 +8,12 @@ application = Flask(__name__)
 application.config['APPLICATION_ROOT'] = '/momcon'
 
 # Create a function to generate URLs with the correct subpath
-def url_for_with_subpath(endpoint, **values):
-    # Ensure the subpath is correctly added
-    return url_for(endpoint, _external=True, **values).replace('http://', f'http://{request.host}/momcon')
+# def url_for_with_subpath(endpoint, **values):
+#     # Ensure the subpath is correctly added
+#     return url_for(endpoint, _external=True, **values).replace('http://', f'http://{request.host}/momcon')
 
-# Add the function to Jinja2 environment
-application.jinja_env.globals['url_for_with_subpath'] = url_for_with_subpath
+# # Add the function to Jinja2 environment
+# application.jinja_env.globals['url_for_with_subpath'] = url_for_with_subpath
 
 @application.route("/")
 def show_dom():
