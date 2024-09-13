@@ -9,7 +9,7 @@ application.config['APPLICATION_ROOT'] = '/momcon'
 
 # Create a function to generate URLs with the correct subpath
 def url_for_with_subpath(endpoint, **values):
-    return url_for(endpoint, **values, _external=False, _scheme='').replace('//', '/')
+    return url_for(endpoint, **values, _external=True, _scheme='').replace('//', '/')
 
 # Add the function to Jinja2 environment
 application.jinja_env.globals['url_for_with_subpath'] = url_for_with_subpath

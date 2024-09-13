@@ -32,3 +32,7 @@ Post install
 
 
 which gunicorn
+
+systemctl status momcon
+
+sudo journalctl -u momcon.service
