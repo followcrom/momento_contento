@@ -7,6 +7,12 @@ application = Flask(__name__)
 # Set the application root for subpath support
 application.config['APPLICATION_ROOT'] = '/momcon'
 
+# Create a function to generate URLs with the correct subpath
+def url_for_with_subpath(endpoint, **values):
+    return url_for(endpoint, **values, _external=False, _scheme='').replace('//', '/')
+
+# Add the function to Jinja2 environment
+application.jinja_env.globals['url_for_with_subpath'] = url_for_with_subpath
 
 @application.route("/")
 def show_dom():
@@ -17,18 +23,19 @@ def show_dom():
     domdom = load_domdom_from_db(dom_id)
     return render_template("index.html", domdom=domdom, dom_id=dom_id, numdoms=numdoms)
 
-
 @application.route("/api")
 def show_json():
     domdoms = load_domdoms_from_db()
     return jsonify(domdoms)
-
 
 @application.route("/sent", methods=["POST"])
 def send_wisdom():
     data = request.form
     add_to_db(data)
     return render_template("submitted.html", submission=data)
+
+# if __name__ == "__main__":
+#     application.run(debug=True)
 
 
 # # Specifically used to run on Flask's built-in development server:

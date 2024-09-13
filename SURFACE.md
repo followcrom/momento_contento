@@ -25,3 +25,10 @@ sudo chown -R root:www-data /var/www/momento_contento
 
 Escaped Dollar Signs:
 Escaped $host, $remote_addr, and $proxy_add_x_forwarded_for in the Nginx configuration to prevent shell interpretation errors.
+
+Post install
+
+/dev/vda1        25G  4.0G   21G  17% /
+
+
+which gunicorn

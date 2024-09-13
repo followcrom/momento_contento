@@ -1,13 +1,20 @@
 #!/bin/bash
 
+# Set up logging
+LOGFILE="/var/log/momcon_setup.log"
+exec > >(tee -a "$LOGFILE") 2>&1
+
+echo "Starting setup script at $(date)"
+
 # Update package lists
 sudo apt update -y
 
 # Upgrade packages non-interactively, and automatically handle prompts
 sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 
-# Install Nginx
-sudo apt install nginx -y
+# Install Nginx and curl
+sudo apt install nginx curl python3.10-venv -y
+apt install  -y
 
 # Restart and enable Nginx to run on startup
 sudo systemctl restart nginx
@@ -30,7 +37,7 @@ if [ -d "$APP_DIR/.git" ]; then
     git pull
 else
     echo "Cloning repository..."
-    git clone "$GIT_REPO" "$APP_DIR"
+    git clone "$REPO_URL" "$APP_DIR"
     cd "$APP_DIR"
 fi
 
@@ -42,18 +49,21 @@ source momcon_venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 
+# Get the public IP address
+PUBLIC_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
+
 # Create Nginx configuration for the app
-bash -c "cat > /etc/nginx/sites-available/momcon" <<EOF
+sudo bash -c "cat > /etc/nginx/sites-available/momcon" <<EOF
 server {
     listen 80;
-    server_name 188.166.155.230;
+    server_name $PUBLIC_IP;
 
     location /momcon/ {
         proxy_pass http://localhost:5000/;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host \$host;
+        proxy_set_header X-Real-IP \$remote_addr;
+        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto \$scheme;
     }
 
     location /static/ {
@@ -63,13 +73,13 @@ server {
 EOF
 
 # Enable the Nginx site
-ln -sf /etc/nginx/sites-available/momcon /etc/nginx/sites-enabled
+sudo ln -sf /etc/nginx/sites-available/momcon /etc/nginx/sites-enabled
 
 # Test Nginx configuration and restart
-nginx -t && systemctl restart nginx
+sudo nginx -t && sudo systemctl restart nginx
 
 # Create Systemd service for Gunicorn
-bash -c "cat > /etc/systemd/system/momcon.service" <<EOF
+sudo bash -c "cat > /etc/systemd/system/momcon.service" <<EOF
 [Unit]
 Description=Gunicorn instance to serve Momento Contento app
 After=network.target
@@ -86,7 +96,9 @@ WantedBy=multi-user.target
 EOF
 
 # Reload systemd, enable and start the Gunicorn service
-systemctl daemon-reload
-systemctl enable momcon
-systemctl start momcon
-systemctl restart momcon
+sudo systemctl daemon-reload
+sudo systemctl enable momcon
+sudo systemctl start momcon
+sudo systemctl restart momcon
+
+echo "Setup complete. Your application should be accessible at http://$PUBLIC_IP/momcon/"
