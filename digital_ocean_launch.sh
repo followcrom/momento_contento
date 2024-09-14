@@ -50,7 +50,7 @@ pip install --upgrade pip
 pip install -r requirements.txt
 
 # Get the public IP address
-PUBLIC_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
+PUBLIC_IP=$(curl -s http://169.254.169.254/metadata/v1/interfaces/public/0/ipv4/address)
 
 # Create Nginx configuration for the app
 sudo bash -c "cat > /etc/nginx/sites-available/momcon" <<EOF
