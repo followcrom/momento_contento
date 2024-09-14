@@ -1,11 +1,12 @@
 # MomCon on the D.O. Box ˖°𓇼🌊⋆🐚🫧
 
 ## Check Disk Usage 💾
-The `df` command shows the amount of disk space used and available on all mounted filesystems. The `-h` option makes the output "human-readable," displaying sizes in GB, MB, etc.
 
 ```bash
 df -h
 ```
+
+The `df` command shows the amount of disk space used and available on all mounted filesystems. The `-h` option makes the output "human-readable," displaying sizes in GB, MB, etc.
 
 ### ⬅️ Before `git cloning` **momcon**:
 
@@ -27,7 +28,7 @@ Avail: 21 GB is available.
 Use%: 17% of the disk space is used.
 ```
 
-## User Data 📝
+## 📜 User Data 📝
 
 ```sh
 #!/bin/bash
@@ -175,12 +176,16 @@ application.jinja_env.globals['url_for_with_subpath'] = url_for_with_subpath
 <form action="{{ url_for_with_subpath('send_wisdom') }}" method="post">
 ```
 
-# 💫 Upload changes and Restart
+<br>
+
+# 💫 Upload Changes and Restart
 
 ```bash
 git pull
 systemctl restart momcon
 ```
+
+<br>
 
 # Troubleshooting 👨‍🔧
 
