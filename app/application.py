@@ -2,7 +2,7 @@ from flask import Flask, render_template, jsonify, request, url_for
 from database import load_domdoms_from_db, load_domdom_from_db, add_to_db
 import random
 
-application = Flask(__name__)
+application = Flask(__name__, static_url_path='/momcon/static', static_folder='/var/www/momcon/static')
 
 # Set the application root for subpath support
 application.config['APPLICATION_ROOT'] = '/momcon'
@@ -19,7 +19,7 @@ def url_for_with_subpath(endpoint, **values):
 # Add the function to Jinja2 environment
 application.jinja_env.globals['url_for_with_subpath'] = url_for_with_subpath
 
-@application.route("/")
+@application.route("/momcon/")
 def show_dom():
     domdoms = load_domdoms_from_db()
     numdoms = len(domdoms)
@@ -28,12 +28,12 @@ def show_dom():
     domdom = load_domdom_from_db(dom_id)
     return render_template("index.html", domdom=domdom, dom_id=dom_id, numdoms=numdoms)
 
-@application.route("/api")
+@application.route("/momcon/api")
 def show_json():
     domdoms = load_domdoms_from_db()
     return jsonify(domdoms)
 
-@application.route("/sent", methods=["POST"])
+@application.route("/momcon/sent", methods=["POST"])
 def send_wisdom():
     data = request.form
     add_to_db(data)

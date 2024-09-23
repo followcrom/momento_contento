@@ -76,8 +76,8 @@ fi
 cd "$APP_DIR/app"
 
 # Set up Python virtual environment
-python3 -m venv momcon_venv
-source momcon_venv/bin/activate
+python3 -m venv .momcon_venv
+source .momcon_venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 
@@ -188,6 +188,8 @@ systemctl restart momcon
 <br>
 
 # Troubleshooting 👨‍🔧
+
+`journalctl -u momcon`
 
 ```bash
 systemctl status momcon
