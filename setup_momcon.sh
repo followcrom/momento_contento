@@ -62,6 +62,10 @@ User=www-data
 Group=www-data
 WorkingDirectory=/var/www/momcon
 Environment="PATH=/var/www/momcon/.momcon_venv/bin"
+Environment="FLASK_ENV=production"
+Environment="AWS_ACCESS_KEY_ID=YOUR_ACCESS_KEY_ID"
+Environment="AWS_SECRET_ACCESS_KEY=YOUR_SECRET_ACCESS_KEY"
+Environment="AWS_DEFAULT_REGION=eu-west-2"
 ExecStart=/var/www/momcon/.momcon_venv/bin/gunicorn --workers 3 --bind 0.0.0.0:5000 application:application
 
 [Install]

@@ -133,6 +133,10 @@ User=root
 Group=www-data
 WorkingDirectory=$APP_DIR/app
 Environment="PATH=$APP_DIR/app/momcon_venv/bin"
+Environment="FLASK_ENV=production"
+Environment="AWS_ACCESS_KEY_ID=YOUR_ACCESS_KEY_ID"
+Environment="AWS_SECRET_ACCESS_KEY=YOUR_SECRET_ACCESS_KEY"
+Environment="AWS_DEFAULT_REGION=eu-west-2"
 ExecStart=$APP_DIR/app/momcon_venv/bin/gunicorn --workers 3 --bind 0.0.0.0:$GUNICORN_PORT application:application
 
 [Install]
@@ -149,21 +153,70 @@ echo "Setup complete. Your application should be accessible at http://$PUBLIC_IP
 ```
 
 
+## Use Environment Variables
+
+You can use environment variables to differentiate between your local and production environments. This way, you can set the static folder and URL path according to the environment.
+
+```bash
+# For local development
+export FLASK_ENV=development
+
+# For production, this needs to be set in the momcon systemd service
+Environment="FLASK_ENV=production"
+```
+
+**NOTE**: services started by `systemd` do not inherit environment variables from the user’s shell environment. Explicitly setting them in the service file is one way to ensure the app can access them. Another approach is to use a `.env` file and load them programmatically in the application.
+
+### Set local FLASK_ENV Permanently
+
+```bash
+nano ~/.bashrc
+
+# Add the following line to set FLASK_ENV:
+export FLASK_ENV=development
+
+# Save the file and run:
+source ~/.bashrc
+
+# Check the Current FLASK_ENV Value
+echo $FLASK_ENV
+```
+
 ## 🛤️ Adjust Flask for Subpath 🏞
 
 #### `application.py`
 
 ```python
-# Set the application root for subpath support
-application.config['APPLICATION_ROOT'] = '/momcon'
+# Check if 'FLASK_ENV' is set in the environment
+env = os.getenv('FLASK_ENV', 'development')  # Defaults to 'development' if FLASK_ENV is not set
+
+if env == 'development':
+    print('FLASK_ENV environment variable not set. Defaulting to development.')
+
+print(f"Current environment: {os.environ.get('FLASK_ENV')}")
+
+# Set static folder and URL path based on the environment
+if env == 'production':
+    application = Flask(__name__, static_url_path='/momcon/static', static_folder='/var/www/momcon/static')
+    application.config['APPLICATION_ROOT'] = '/momcon'  # Production app root
+else:
+    application = Flask(__name__, static_folder='static')
+    application.config['APPLICATION_ROOT'] = '/'  # Local app root
 
 # Create a function to generate URLs with the correct subpath
 def url_for_with_subpath(endpoint, **values):
     # Generate the URL using url_for
     url = url_for(endpoint, **values)
-    # Add the application root as it isn't already present on the D.O. box
-    if not url.startswith(application.config['APPLICATION_ROOT']):
-        url = application.config['APPLICATION_ROOT'] + url
+    
+    # Add the application root if running in production
+    if env == 'production':
+        if not url.startswith(application.config['APPLICATION_ROOT']):
+            url = application.config['APPLICATION_ROOT'] + url
+    else:
+        # Adjust for local development, account for '/momcon' being part of the URL
+        if 'momcon' not in request.url_root and not url.startswith('/momcon'):
+            url = "/momcon" + url
+
     return url
 
 # Add the function to Jinja2 environment
@@ -189,7 +242,7 @@ systemctl restart momcon
 
 # Troubleshooting 👨‍🔧
 
-`journalctl -u momcon`
+`journalctl -u momcon -n 20`
 
 ```bash
 systemctl status momcon
@@ -230,6 +283,7 @@ sudo tail -f /var/log/nginx/access.log
 ## Gunicorn Logs 🦄
 
 ```bash
+journalctl -u momcon -n 20
 journalctl -u momcon
 # or
 sudo journalctl -u momcon.service

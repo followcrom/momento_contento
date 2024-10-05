@@ -205,8 +205,8 @@ sudo systemctl disable momcon
 
 ## Authors
 
-🌐 followCrom: [followcrom.online](https://followcrom.online/index.html) 🌐
+🌐 followCrom: [followcrom.com](https://followcrom.com/index.html) 🌐
 
-📫 followCrom: [get in touch](https://followcrom.online/contact/contact.php) 📫
+📫 followCrom: [get in touch](https://followcrom.com/contact/contact.php) 📫
 
-[![Static Badge](https://img.shields.io/badge/followcrom-.online-blue?style=for-the-badge)](http://followcrom.online)
+[![Static Badge](https://img.shields.io/badge/followcrom-.com-blue?style=for-the-badge)](http://followcrom.com)

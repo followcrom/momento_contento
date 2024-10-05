@@ -1,35 +1,41 @@
 <head>
-
   <title>followCrom - Momento Contento</title>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link rel="stylesheet" media="(min-width: 1024px)" href="{{ url_for('static', filename='styles/large.css') }}">
-
-  <link rel="stylesheet" media="(min-width: 640px) and (max-width: 1023px)"
-    href="{{ url_for('static', filename='styles/medium.css') }}">
-
-  <link rel="stylesheet" media="(max-width: 639px)" href="{{ url_for('static', filename='styles/small.css') }}">
-
-  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon_dom.ico') }}">
-
+  <link
+    rel="stylesheet"
+    media="(min-width: 1024px)"
+    href="{{ url_for('static', filename='styles/large.css') }}"
+  />
+  <link
+    rel="stylesheet"
+    media="(min-width: 640px) and (max-width: 1023px)"
+    href="{{ url_for('static', filename='styles/medium.css') }}"
+  />
+  <link
+    rel="stylesheet"
+    media="(max-width: 639px)"
+    href="{{ url_for('static', filename='styles/small.css') }}"
+  />
+  <link
+    rel="shortcut icon"
+    href="{{ url_for('static', filename='images/favicon_dom.ico') }}"
+  />
 </head>
 
-
 <body class="main">
-
   <div class="banner">
-    <img src="static/images/djrr.jpg" alt="DJ Double R" height="120px">
+    <img
+      src="{{ url_for('static', filename='images/djrr.jpg') }}"
+      alt="DJ Double R"
+      height="120px"
+    />
 
     <div class="button">
-      <a href="{{ url_for_with_subpath('show_dom') }}">Momento<br>Contento</a>
+      <a href="{{ url_for_with_subpath('show_dom') }}">Momento<br />Contento</a>
     </div>
-
   </div>
 
-  </div>
-
-  <div class="top_bar">
-    // A Flask app connected to a SQLite database //
-  </div>
+  <div class="top_bar">// A Flask app connected to a SQLite database //</div>
