@@ -2,15 +2,13 @@
 
 In this Flask app, a quote is chosen at random from an sqlite3 database and displayed. Users can contribute their own wisdom to the database. Accessible through a user-friendly UI.
 
-![GitHub last commit](https://img.shields.io/github/last-commit/followcrom/momento_contento)
-
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/followcrom/momento_contento)
+![GitHub last commit](https://img.shields.io/github/last-commit/followcrom/momento_contento) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/followcrom/momento_contento)
 
 <p align="center">
-    <img src="screenshot.png" alt="Momento Contento web interface" width="450"/>
+    <img src="screenshot.png" alt="Momento Contento web interface" width="550"/>
 </p>
 
-# Local Development
+# Local Development 🌱
 
 Start the venv:
 
@@ -24,7 +22,7 @@ Navigate to the app directory so the app can find the database. Run the Flask ap
 flask --app application run
 ```
 
-# Azure VM
+# Production Deployment 🚀
 
 Build a venv if necessary:
 
