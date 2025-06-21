@@ -2,14 +2,13 @@
 
 In this Flask app, a quote is chosen at random from an sqlite3 database and displayed. Users can contribute their own wisdom to the database. Accessible through a user-friendly UI.
 
-<div style="text-align: center;">
+![GitHub last commit](https://img.shields.io/github/last-commit/followcrom/momento_contento)
 
-![GitHub last commit](https://img.shields.io/github/last-commit/followcrom/Momento-Contento)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/followcrom/momento_contento)
 
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/followcrom/Momento-Contento)
-
-![Momento Contento web interface](https://www.followcrom.online/embeds/gh_domdom_readme.jpg)
-</div>
+<p align="center">
+    <img src="screenshot.png" alt="Momento Contento web interface" width="450"/>
+</p>
 
 # Local Development
 
@@ -210,3 +209,4 @@ sudo systemctl disable momcon
 📫 followCrom: [get in touch](https://followcrom.com/contact/contact.php) 📫
 
 [![Static Badge](https://img.shields.io/badge/followcrom-.com-blue?style=for-the-badge)](http://followcrom.com)
+

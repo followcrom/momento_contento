@@ -28,6 +28,23 @@ Avail: 21 GB is available.
 Use%: 17% of the disk space is used.
 ```
 
+## Reading from the DB 🛢️
+To read from the SQLite database, you can use the `sqlite3` command-line tool. Below is an example of how to connect to the `momcons.db` database, list the tables, and query the `momcons` table.
+
+```bash
+cd /var/www/momcon
+
+sqlite3 momcons.db
+
+.tables
+
+SELECT * FROM momcons;
+
+DELETE FROM momcons WHERE id = 16;
+
+.quit
+```
+
 ## 📜 User Data 📝
 
 ```sh
